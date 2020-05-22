@@ -32,6 +32,10 @@ public class Main extends ConsoleProgram {
         return enteredWord;
     }
 
+    /*parameter is the entered string.
+    checks how the word ends and returns a String with the word converted to plural*/
+
+
     private String checksCorrectPlural(String enteredWord) {
         char lastCharOfString = (enteredWord.charAt(enteredWord.length() - 2));
         switch (enteredWord.charAt(enteredWord.length() - 1)) {
