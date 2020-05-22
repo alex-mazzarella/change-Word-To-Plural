@@ -12,14 +12,13 @@ import acm.program.ConsoleProgram;
 
 
 public class Main extends ConsoleProgram {
-
     public static void main(String[] args) {
         (new com.company.Main()).start();
     }
 
     public void run() {
 
-        println("The plural of your word is: " +checksCorrectPlural(insertWord()));
+        println("The plural of your word is: " + checksCorrectPlural(insertWord()));
 
     }
 
@@ -34,18 +33,19 @@ public class Main extends ConsoleProgram {
     }
 
     private String checksCorrectPlural(String enteredWord) {
+        char lastCharOfString = (enteredWord.charAt(enteredWord.length() - 2));
         switch (enteredWord.charAt(enteredWord.length() - 1)) {
             case 's', 'x', 'z', 'S', 'X', 'Z':
                 return enteredWord + "es";
             case 'h', 'H':
-                switch (enteredWord.charAt(enteredWord.length() - 2)) {
+                switch (lastCharOfString) {
                     case 'c', 's', 'C', 'S':
                         return enteredWord + "es";
                     default:
                         return enteredWord;
                 }
             case 'y', 'Y':
-                switch ((enteredWord.charAt(enteredWord.length() - 2))) {
+                switch (lastCharOfString) {
                     case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':
                         return enteredWord.substring(0, enteredWord.length() - 1) + "ies";
                     default:
@@ -54,7 +54,6 @@ public class Main extends ConsoleProgram {
 
             default:
                 return enteredWord + "s";
-
         }
     }
 }
